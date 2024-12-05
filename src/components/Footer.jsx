@@ -1,14 +1,15 @@
 import { FaDiscord, FaXTwitter, FaYoutube } from 'react-icons/fa6';
 import logo from '../assets/app-logo.png'
 
+
 const Footer = () => {
   return (
     <div >
-      <footer className="footer bg-[#1e272e] text-white px-44 py-16">
+      <footer className="footer bg-[#111111] text-white px-44 py-16">
         <aside>
          <img src={logo} className='h-32' alt="" />
          
-          <h3 className='text-2xl'> A Game Review Application</h3>
+          <h3 className='text-2xl text-[#FFC311]'> A Game Review Application</h3>
             
           <p className='font-normal'>Play Smarter with Honest Reviews.</p>
           

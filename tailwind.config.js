@@ -10,7 +10,11 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        kanit : ["Kanit", "sans-serif"],
+        kanit: ["Kanit", "sans-serif"],
+        Game: ["Faculty Glyphic", "sans-serif"]
+      },
+      backgroundImage: {
+        'Gaming': "url('/src/assets/img1.jpg')",
       },
     },
   },

@@ -1,18 +1,22 @@
 
 import Footer from "../components/Footer";
-import NavBar from "../components/NavBar";
 import Hero from "../components/Hero";
+import NavBar from "../components/NavBar";
+
 
 
 const RootLayout = () => {
   return (
     <div className="font-kanit overflow-x-hidden">
-      <header>
-        <NavBar/>
+      <header className="mb-10">
+        <div>
+          <Hero />
+          <div className="absolute top-0 w-full px-10">
+            <NavBar/>
+          </div>
+       </div>
       </header>
-      <main className="mb-48">
-        <Hero/>
-      </main>
+     
       <footer>
         <Footer/>
       </footer>
