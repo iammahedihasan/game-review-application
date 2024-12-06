@@ -11,7 +11,7 @@ const MYProfile = () => {
   
 
   return (
-   <div className="bg-slate-300 min-h-screen">
+   <div className=" min-h-screen">
       <div className="px-10 ">
         <NavBar/>
         <div className="flex items-center gap-2 bg-profile h-40 py-10 px-4 text-white justify-center mt-6">
