@@ -2,23 +2,63 @@ import { useContext } from "react";
 import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
 import { authContext } from "../provider/AuthProvider";
+import Swal from "sweetalert2";
 
 
 const AddReview = () => {
-  const {user} =useContext(authContext)
+  const { user } = useContext(authContext)
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    const form = e.target
+      const image = form.image.value
+      const title = form.title.value
+      const description = form.description.value
+      const rating = form.rating.value
+      const year = form.year.value
+      const genre = form.genre.value
+      const userEmail = user.email
+      const userName = user.displayName
+    
+   const allInfo = {image, title, description, rating, year, genre, userEmail, userName};
+    
+    fetch('http://localhost:5000/all-reviews', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(allInfo)
+    })
+    .then(res=> res.json())
+      .then(data => {
+        console.log(data);
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Review",
+            text: "Submit Successfull",
+            icon: "success"
+          });
+        }
+        form.reset()
+        form.genre.value = "Genres"
+    })
+  }
+
+  
   return (
     <div>
-      <div className="bg-review min-h-screen">
-        <header className="w-11/12 mx-auto">
+      <div className="bg-review ">
+        <header className="px-10">
           <NavBar/>
         </header>
   
         <main>
-            <div className="min-h-screen flex justify-center items-center">
+            <div className="h-[600px] flex justify-center items-center">
 
               <div className="card bg-base-100  shrink-0 p-10 rounded-2xl">
                 <h2 className="text-3xl font-bold text-center">Add Reviews</h2>
-                <form  className="card-body space-y-2">
+                <form onSubmit={handleSubmit}  className="card-body space-y-2">
 
                  <div className="flex items-center gap-4">
                     <div className="form-control">
@@ -46,7 +86,7 @@ const AddReview = () => {
   
                       <input
                         type="text"
-                        name="discription"
+                        name="description"
                       placeholder="Review Description"
                         className="input border-2 border-[#F3F3F3] rounded-2xl"
                         required
@@ -57,8 +97,11 @@ const AddReview = () => {
                       <input
                         type="number"
                       name="rating"
-                      placeholder="Rating"
-                        className="input border-2 border-[#F3F3F3] rounded-2xl"
+                      placeholder="Rating 1-5"
+                      step="any"
+                      min="1"
+                      max="5"
+                      className="input border-2 border-[#F3F3F3] rounded-2xl [&::-webkit-inner-spin-button]:appearance-none "
                         required
                       />
   
@@ -70,8 +113,8 @@ const AddReview = () => {
                   <div className="form-control">
   
                     <input
-                      type="publishing-year"
-                      name="rating"
+                      type="text"
+                      name="year"
                       placeholder="Publishing Year"
                       className="input border-2 border-[#F3F3F3] rounded-2xl"
                       required
@@ -82,7 +125,7 @@ const AddReview = () => {
   
                   <div className="form-control">
   
-                    <select className="select w-[215px] border-2 border-[#F3F3F3] rounded-2xl">
+                    <select name="genre" className="select w-[215px] border-2 border-[#F3F3F3] rounded-2xl">
                       <option disabled selected>Genres </option>
                       <option value={'Action'}>Action</option>
                       <option value={'RPG'}>RPG</option>
@@ -98,7 +141,6 @@ const AddReview = () => {
   
                     <input
                       type="text"
-                      name="name"
                       defaultValue={user?.displayName} readOnly
                       className="input border-2 border-[#F3F3F3] rounded-2xl"
                       required
@@ -111,7 +153,6 @@ const AddReview = () => {
   
                     <input
                       type="email"
-                      name="useremail"
                       defaultValue={user?.email} readOnly
                       className="input border-2 border-[#F3F3F3] rounded-2xl"
                       required

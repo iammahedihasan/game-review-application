@@ -1,4 +1,4 @@
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { authContext } from '../provider/AuthProvider';
 import { ToastContainer, toast } from 'react-toastify';
@@ -8,16 +8,19 @@ const NavBar = () => {
 
   const { user, signOutUser } = useContext(authContext)
   const navigate = useNavigate()
+  const location = useLocation().pathname
   
   const links = (
     <>
-      <li className="text-lg">
+      <li className="text-lg ">
             <NavLink
               className={({ isActive }) =>
                 isActive
               ? 'text-[#FFC311]    font-medium'
-                  : 'text-white text-sm'
+              : `${location !== "/" && location!== "/add-reviews" ? " text-black text-sm" : "text-white text-sm"
+          }`
               }
+          
               to="/"
             >
               Home
@@ -28,7 +31,8 @@ const NavBar = () => {
               className={({ isActive }) =>
                 isActive
               ? 'text-[#FFC311]     font-medium'
-                  : 'text-white text-sm'
+              : `${location !== "/" && location !== "/add-reviews" ? " text-black text-sm" : "text-white text-sm"
+              }`
               }
               to="/all-reviews"
             >
@@ -40,7 +44,8 @@ const NavBar = () => {
               className={({ isActive }) =>
                 isActive
               ? 'text-[#FFC311]   font-medium'
-                  : 'text-white text-sm'
+              : `${location !== "/" && location !== "/add-reviews" ? " text-black text-sm" : "text-white text-sm"
+              }`
               }
               to="/add-reviews"
             >
@@ -54,7 +59,8 @@ const NavBar = () => {
           className={({ isActive }) =>
             isActive
               ? 'text-[#FFC311] px-6 py-2 rounded-none  font-medium'
-              : 'text-white text-sm'
+              : `${location !== "/" && location !== "/add-reviews" ? " text-black text-sm" : "text-white text-sm"
+              }`
           }
           to="/my-reviews"
         >
@@ -67,7 +73,8 @@ const NavBar = () => {
           className={({ isActive }) =>
             isActive
               ? 'text-[#FFC311] px-6 py-2 rounded-none  font-medium'
-              : 'text-white text-sm'
+              : `${location !== "/" && location !== "/add-reviews" ? " text-black text-sm" : "text-white text-sm"
+              }`
           }
           to="/game-watchlist"
         >
@@ -92,7 +99,7 @@ const NavBar = () => {
     })
   }
   return (
-    <div className="navbar bg-transparent">
+    <div className="navbar bg-transparent font-kanit">
       <ToastContainer
         position="top-center"
         autoClose={3000}
@@ -128,7 +135,7 @@ const NavBar = () => {
           </ul>
         </div>
         <div>
-          <h2 className='font-Game text-white font-bold text-2xl uppercase'>Game<span className='text-[#FFC311]'>Review</span></h2>
+          <h2 className={`${location !== "/" && location !== "/add-reviews" ? " text-black font-bold text-2xl uppercase font-Game" : "text-white font-Game font-bold text-2xl uppercase"}`}>Game<span className='text-[#FFC311]'>Review</span></h2>
         </div>
       </div>
       <div className="navbar-center hidden lg:flex">

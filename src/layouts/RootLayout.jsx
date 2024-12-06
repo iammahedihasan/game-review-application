@@ -7,7 +7,7 @@ import NavBar from "../components/NavBar";
 
 const RootLayout = () => {
   return (
-    <div className="font-kanit overflow-x-hidden">
+    <div className=" overflow-x-hidden">
       <header className="mb-10">
         <div>
           <Hero />

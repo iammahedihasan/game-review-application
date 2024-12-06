@@ -30,7 +30,7 @@ const Hero = () => {
           <div className="absolute top-56 w-screen flex justify-center flex-col items-center  text-white">
             <h2 className="text-7xl font-bold text-center mb-6">Egypt and World</h2>
             <p className="font-normal w-[1000px] text-center">An action-adventure game set in Ancient Egypt during Cleopatras era, blending history and mythology as players explore pyramids, the Nile, and bustling cities while unraveling the origins of the Assassin Brotherhood.</p>
-            <Link> <button className="text-white border-2 border-white rounded-full px-16 py-4 mt-8">See Reviews</button></Link>
+            <Link to='/all-reviews'> <button className="text-white border-2 border-white rounded-full px-16 py-4 mt-8">See Reviews</button></Link>
           </div>
 
         </div>
@@ -46,7 +46,7 @@ const Hero = () => {
           <div className="absolute top-56 w-screen flex justify-center flex-col items-center  text-white">
             <h2 className="text-7xl font-bold text-center mb-6">Forza Horizon 5</h2>
             <p className="font-normal w-[500px] text-center">An open-world racing game set in Mexico, featuring dynamic seasons, stunning visuals, and diverse terrains for players to explore.</p>
-            <Link> <button className="text-white border-2 border-white rounded-full px-16 py-4 mt-8">See Reviews</button></Link>
+            <Link to='/all-reviews'> <button className="text-white border-2 border-white rounded-full px-16 py-4 mt-8">See Reviews</button></Link>
           </div>
         </div>
         <div className="relative">
@@ -61,7 +61,7 @@ const Hero = () => {
           <div className="absolute top-56 w-screen flex justify-center flex-col items-center  text-white">
             <h2 className="text-7xl font-bold text-center mb-6">FIFA Football 24</h2>
             <p className="font-normal w-[1000px] text-center"> A highly realistic football simulation game offering licensed teams, players, and leagues, along with innovative features like career mode, online multiplayer, and the fan-favorite Ultimate Team mode.</p>
-            <Link> <button className="text-white border-2 border-white rounded-full px-16 py-4 mt-8">See Reviews</button></Link>
+            <Link to='/all-reviews'> <button className="text-white border-2 border-white rounded-full px-16 py-4 mt-8">See Reviews</button></Link>
           </div>
         </div>
       </Slider>
