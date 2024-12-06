@@ -1,21 +1,14 @@
-import { Link, NavLink } from 'react-router-dom';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import img1 from '../assets/img1.jpg';
-import img2 from '../assets/img2.jpg';
-import img3 from '../assets/img3.jpg';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { authContext } from '../provider/AuthProvider';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const NavBar = () => {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
-  };
+
+  const { user, signOutUser } = useContext(authContext)
+  const navigate = useNavigate()
+  
   const links = (
     <>
       <li className="text-lg">
@@ -82,11 +75,36 @@ const NavBar = () => {
         </NavLink>
       </li>
     </>
-
-    
   );
+
+  const handleSignOut = () => {
+    
+    signOutUser()
+      .then(() => { 
+        toast.success('SignOut Successfull')
+
+        setTimeout(() => {
+          navigate('/sign-in')
+        }, 1000)
+      })
+      .catch(err => {
+      console.log(err);
+    })
+  }
   return (
     <div className="navbar bg-transparent">
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -119,12 +137,36 @@ const NavBar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <Link
-          to="/sign-in"
-          className="text-white bg-[#FFC311]  px-4 py-1  font-bold mr-4"
-        >
-          SignIn
-        </Link>
+        {
+          user ? <div className='flex items-center'>
+            <div className="tooltip  tooltip-left" data-tip={user.displayName}>
+              <div className="dropdown dropdown-hover">
+                <img className='h-10 rounded-full mr-4' src={user.photoURL} alt="" />
+                <ul tabIndex={0} className="dropdown-content menu rounded-box z-[1] w-32 p-2 shadow">
+                  <li className='bg-[#FFC311] text-white '><Link to='/my-profile'>My Profile</Link></li>
+                </ul>
+              </div>
+            </div>
+            <div>
+              <button onClick={handleSignOut} className="text-white bg-[#FFC311]  px-4 py-1  font-bold mr-4">Sign Out</button>
+           </div>
+
+          </div> : <>
+              <Link
+                to="/sign-in"
+                className="text-white bg-[#FFC311]  px-4 py-1  font-bold mr-4"
+              >
+                <button>SignIn</button>
+              </Link>
+
+              <Link
+                to="/sign-up"
+                className="text-white bg-[#FFC311]  px-4 py-1  font-bold mr-4"
+              >
+                <button>SignUp</button>
+              </Link>
+            </>
+        }
       </div>
     </div>
   );

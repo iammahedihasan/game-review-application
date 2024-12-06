@@ -15,6 +15,8 @@ export default {
       },
       backgroundImage: {
         'Gaming': "url('/src/assets/img1.jpg')",
+        'profile': "url('/src/assets/my-profile.jpg')",
+        'review': "url('/src/assets/img3.jpg')",
       },
     },
   },
