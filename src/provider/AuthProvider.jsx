@@ -4,7 +4,6 @@ import { createContext, useEffect, useState } from 'react';
 import {
   createUserWithEmailAndPassword,
   getAuth,
-  GithubAuthProvider,
   GoogleAuthProvider,
   onAuthStateChanged,
   signInWithEmailAndPassword,
@@ -23,7 +22,6 @@ const AuthProvider = ({ children }) => {
   const [loading,setLoading] = useState(true)
   const auth = getAuth(app)
   const googleProvider = new GoogleAuthProvider();
-  const githubProvider = new GithubAuthProvider();
 console.log(user);
 
   useEffect(() => {
@@ -52,10 +50,7 @@ console.log(user);
     return signInWithPopup(auth, googleProvider)
   }
 
-  const signUpGithub = () => {
-    setLoading(true)
-    return signInWithPopup(auth,githubProvider)
-  } 
+ 
 
   const signOutUser = () => {
     setLoading(true)
@@ -72,7 +67,6 @@ console.log(user);
     createUser,
     signInUser,
     signUpGoogle,
-    signUpGithub,
     signOutUser,
     updateUser,
     loading

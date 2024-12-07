@@ -1,4 +1,4 @@
-import { FaGithub, FaGoogle } from "react-icons/fa6";
+import {  FaGoogle } from "react-icons/fa6";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import { useContext } from "react";
@@ -48,21 +48,7 @@ const SignIn = () => {
       })
   }
 
-  const handleGithub = () => {
-    signUpGithub()
-      .then(res => {
-        console.log(res);
-        toast.success('SignIn Successfull')
-        setTimeout(() => {
-          navigate(location?.state ? location?.state : '/');
-        }, 1000)
-
-      })
-      .catch(err => {
-        console.log(err);
-        toast.error('SignIn Unsuccessfull')
-      })
-  }
+  
   return (
     <div className="bg-Gaming">
       <Toaster />
@@ -114,7 +100,7 @@ const SignIn = () => {
   
           <div className="my-5 flex justify-center gap-3">
             <button onClick={handleGoogle} className="p-3 bg-[#FFC311] rounded-lg"><FaGoogle /></button>
-            <button onClick={handleGithub} className="p-3 bg-[#FFC311] rounded-lg"><FaGithub /></button>
+         
           </div>
         </div>
       </div>

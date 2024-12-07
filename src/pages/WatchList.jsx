@@ -8,17 +8,18 @@ import WatchListsTable from "../components/WatchListsTable";
 
 const WatchList = () => {
   const { user } = useContext(authContext)
+  const {email} =user
   const [watchLists,setWatchLists] = useState([])
 
 
   useEffect(() => {
-    fetch(`http://localhost:5000/watchlists/${user.email}`)
+    fetch(`http://localhost:5000/watchlists/${email}`)
     .then(res=> res.json())
       .then(data => {
         console.log(data);
         setWatchLists(data)
     })
-  },[user.email])
+  },[email])
   return (
     <div>
       <header>

@@ -5,7 +5,7 @@ import Star from "./Star";
 const ReviewCard = ({ r }) => {
   const {_id, image, title, description, rating, year, genre } = r
   const ratting = parseFloat(rating)
-  console.log(ratting);
+  
   return (
     <div className="w-72 font-Popins">
       <div >

@@ -11,9 +11,9 @@ import { authContext } from "../provider/AuthProvider";
 const ReviewDetails = () => {
   const reviewDetails = useLoaderData()
   const { user } = useContext(authContext)
-  const {email, displayName} = user 
+  const { email, displayName} = user
   const { _id, image, title, description, rating, year, genre, userName } = reviewDetails
-  const allData = { _id, image, title, description, rating, year, genre, email, displayName }
+  const allData = {  image, title, description, rating, year, genre, email, displayName }
   
   const ratting = parseFloat(rating)
   const watchListHandelar = () => {
