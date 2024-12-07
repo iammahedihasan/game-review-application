@@ -11,7 +11,7 @@ const RootLayout = () => {
       <header className="mb-10">
         <div>
           <Hero />
-          <div className="absolute top-0 w-full px-10">
+          <div className="absolute top-0 w-full">
             <NavBar/>
           </div>
        </div>

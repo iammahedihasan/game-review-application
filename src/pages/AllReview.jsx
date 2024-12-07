@@ -10,7 +10,7 @@ const AllReview = () => {
   const [review, setReviews] = useState(allReviews)
   return (
     <div >
-      <header className="px-10">
+      <header>
         <NavBar/>
       </header>
       <div className="grid grid-cols-4  gap-10 w-9/12 mx-auto my-10 ">

@@ -1,5 +1,5 @@
 import { FaGithub, FaGoogle } from "react-icons/fa6";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import { useContext } from "react";
 import { authContext } from "../provider/AuthProvider";
@@ -10,6 +10,7 @@ import toast, { Toaster } from "react-hot-toast";
 const SignUp = () => {
   const { createUser, signUpGoogle, signUpGithub, updateUser } = useContext(authContext)
   const navigate = useNavigate()
+  const location = useLocation()
 
   const handleSignUp = e => {
     e.preventDefault()
@@ -40,8 +41,8 @@ const SignUp = () => {
         });
         form.reset()
         setTimeout(() => {
-          navigate('/')
-        }, 2000)
+          navigate(location?.state ? location?.state : '/');
+        }, 1000)
       })
       .catch(err => {
         console.log(err.massage);
@@ -56,8 +57,8 @@ const SignUp = () => {
         console.log(res);
      toast.success('SignUp Successfull')
         setTimeout(() => {
-          navigate('/')
-        }, 2000)
+          navigate(location?.state ? location?.state : '/');
+        }, 1000)
       })
       .catch(err => {
         console.log(err);
@@ -71,8 +72,8 @@ const SignUp = () => {
         console.log(res);
         toast.success('SignUp Successfull')
         setTimeout(() => {
-          navigate('/')
-        }, 2000)
+          navigate(location?.state ? location?.state : '/');
+        }, 1000)
 
       })
       .catch(err => {
@@ -84,7 +85,7 @@ const SignUp = () => {
   return (
     <div className="bg-Gaming">
       <Toaster/>
-      <div className="px-10">
+      <div>
         <NavBar/>
      </div>
       <div className="min-h-screen flex justify-center items-center">

@@ -6,6 +6,8 @@ import MYProfile from "../pages/MyProfile";
 import AddReview from "../pages/AddReview";
 import AllReview from "../pages/AllReview";
 import ReviewDetails from "../pages/ReviewDetails";
+import MyReviews from "../pages/MyReviews";
+import PrivateRoutes from "./PrivateRoutes";
 
 
 
@@ -17,19 +19,19 @@ const router = createBrowserRouter([
   },
   {
     path: "/sign-in",
-    element: <SignIn/>
+    element: <SignIn />
   },
   {
     path: "/sign-up",
-    element: <SignUp/>
+    element: <SignUp />
   },
   {
     path: '/my-profile',
-    element: <MYProfile/>
+    element: <PrivateRoutes><MYProfile /></PrivateRoutes>
   },
   {
     path: '/add-reviews',
-    element: <AddReview/>,
+    element: <PrivateRoutes><AddReview /></PrivateRoutes>,
   },
   {
     path: '/all-reviews',
@@ -38,8 +40,13 @@ const router = createBrowserRouter([
   },
   {
     path: '/explore-details/:id',
-    element: <ReviewDetails />,
+    element: <PrivateRoutes><ReviewDetails /></PrivateRoutes>,
     loader: ({ params }) => fetch(`http://localhost:5000/all-reviews/${params.id}`)
+  },
+  {
+    path: '/my-reviews',
+    element: <PrivateRoutes><MyReviews /></PrivateRoutes>,
+    
   }
 ]);
 

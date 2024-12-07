@@ -1,15 +1,15 @@
 import { FaGithub, FaGoogle } from "react-icons/fa6";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import { useContext } from "react";
 import { authContext } from "../provider/AuthProvider";
 import toast, { Toaster } from "react-hot-toast";
-import { ToastContainer } from "react-toastify";
 
 
 const SignIn = () => {
   const { signInUser, signUpGoogle, signUpGithub } = useContext(authContext)
   const navigate = useNavigate()
+  const location = useLocation()
   const handleSignIn = e => {
     e.preventDefault()
     const form = e.target
@@ -23,8 +23,8 @@ const SignIn = () => {
         toast.success('SignIn Successfull')
         form.reset()
         setTimeout(() => {
-          navigate('/')
-        }, 2000);
+          navigate(location?.state ? location?.state : '/');
+        }, 1000);
 
       })
       .catch(err => {
@@ -39,8 +39,8 @@ const SignIn = () => {
         console.log(res);
         toast.success('SignIn Successfull')
         setTimeout(() => {
-          navigate('/')
-        }, 2000)
+          navigate(location?.state ? location?.state : '/');
+        }, 1000)
       })
       .catch(err => {
         console.log(err);
@@ -54,8 +54,8 @@ const SignIn = () => {
         console.log(res);
         toast.success('SignIn Successfull')
         setTimeout(() => {
-          navigate('/')
-        }, 1500)
+          navigate(location?.state ? location?.state : '/');
+        }, 1000)
 
       })
       .catch(err => {
@@ -67,7 +67,7 @@ const SignIn = () => {
     <div className="bg-Gaming">
       <Toaster />
       
-      <div className="px-10">
+      <div>
         <NavBar />
       </div>
       <div className="min-h-screen flex justify-center items-center ">

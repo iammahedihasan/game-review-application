@@ -47,12 +47,17 @@ const AddReview = () => {
 
   
   return (
-    <div>
-      <div className="bg-review ">
-        <header className="px-10">
+    <div >
+     
+      <div className="bg-review">
+        
+        
+        <header>
           <NavBar/>
         </header>
-  
+
+        
+        
         <main>
             <div className="h-[600px] flex justify-center items-center">
 

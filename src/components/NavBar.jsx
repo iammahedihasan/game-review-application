@@ -39,48 +39,54 @@ const NavBar = () => {
           All Reviews
             </NavLink>
           </li>
-          <li className="text-lg">
-            <NavLink
-              className={({ isActive }) =>
-                isActive
-              ? 'text-[#FFC311]   font-medium'
-              : `${location !== "/" && location !== "/add-reviews" ? " text-black text-sm" : "text-white text-sm"
-              }`
-              }
-              to="/add-reviews"
-            >
-          Add Review
-            </NavLink>
-          </li>
-       
-      
-      <li className="text-lg">
-        <NavLink
-          className={({ isActive }) =>
-            isActive
-              ? 'text-[#FFC311] px-6 py-2 rounded-none  font-medium'
-              : `${location !== "/" && location !== "/add-reviews" ? " text-black text-sm" : "text-white text-sm"
-              }`
-          }
-          to="/my-reviews"
-        >
-          My Reviews
-        </NavLink>
-      </li>
+      {
+        user && (
+          <>
+            <li className="text-lg">
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? 'text-[#FFC311]   font-medium'
+                    : `${location !== "/" && location !== "/add-reviews" ? " text-black text-sm" : "text-white text-sm"
+                    }`
+                }
+                to="/add-reviews"
+              >
+                Add Review
+              </NavLink>
+            </li>
 
-      <li className="text-lg">
-        <NavLink
-          className={({ isActive }) =>
-            isActive
-              ? 'text-[#FFC311] px-6 py-2 rounded-none  font-medium'
-              : `${location !== "/" && location !== "/add-reviews" ? " text-black text-sm" : "text-white text-sm"
-              }`
-          }
-          to="/game-watchlist"
-        >
-          Game WatchList
-        </NavLink>
-      </li>
+
+            <li className="text-lg">
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? 'text-[#FFC311] px-6 py-2 rounded-none  font-medium'
+                    : `${location !== "/" && location !== "/add-reviews" ? " text-black text-sm" : "text-white text-sm"
+                    }`
+                }
+                to="/my-reviews"
+              >
+                My Reviews
+              </NavLink>
+            </li>
+
+            <li className="text-lg">
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? 'text-[#FFC311] px-6 py-2 rounded-none  font-medium'
+                    : `${location !== "/" && location !== "/add-reviews" ? " text-black text-sm" : "text-white text-sm"
+                    }`
+                }
+                to="/game-watchlist"
+              >
+                Game WatchList
+              </NavLink>
+            </li>
+          </>
+        )
+         }
     </>
   );
 
@@ -99,7 +105,7 @@ const NavBar = () => {
     })
   }
   return (
-    <div className="navbar bg-transparent font-kanit">
+    <div className="navbar bg-transparent font-kani px-10">
       <ToastContainer
         position="top-center"
         autoClose={3000}
