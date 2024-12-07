@@ -61,7 +61,7 @@ const NavBar = () => {
               <NavLink
                 className={({ isActive }) =>
                   isActive
-                    ? 'text-[#FFC311] px-6 py-2 rounded-none  font-medium'
+                    ? 'text-[#FFC311]  rounded-none  font-medium'
                     : `${location !== "/" && location !== "/add-reviews" ? " text-black text-sm" : "text-white text-sm"
                     }`
                 }
@@ -75,7 +75,7 @@ const NavBar = () => {
               <NavLink
                 className={({ isActive }) =>
                   isActive
-                    ? 'text-[#FFC311] px-6 py-2 rounded-none  font-medium'
+                    ? 'text-[#FFC311] rounded-none  font-medium'
                     : `${location !== "/" && location !== "/add-reviews" ? " text-black text-sm" : "text-white text-sm"
                     }`
                 }

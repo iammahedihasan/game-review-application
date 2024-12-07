@@ -1,6 +1,7 @@
 import { MdDeleteSweep, MdOutlineEdit } from "react-icons/md";
 import Star from "./Star";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 
 const MyreviewCard = ({ review, setReview, myReview }) => {
@@ -8,22 +9,34 @@ const MyreviewCard = ({ review, setReview, myReview }) => {
   const ratting = parseFloat(rating)
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/all-reviews/${id}`, {
-      method: 'DELETE',
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/all-reviews/${id}`, {
+          method: 'DELETE',
 
-    })
-    .then(res=> res.json())
-      .then(data => {
-        if (data.deletedCount > 0) {
-          Swal.fire({
-            title: "Delete",
-            text: "Deleted Successfull",
-            icon: "success"
-          });
-          const remaining = myReview.filter(r => r._id !== id)
-          setReview(remaining)
-        }
-    })
+        })
+          .then(res => res.json())
+          .then(data => {
+            if (data.deletedCount > 0) {
+              Swal.fire({
+                title: "Delete",
+                text: "Deleted Successfull",
+                icon: "success"
+              });
+              const remaining = myReview.filter(r => r._id !== id)
+              setReview(remaining)
+            }
+          })
+      }
+    });
   }
   
 
@@ -38,7 +51,7 @@ const MyreviewCard = ({ review, setReview, myReview }) => {
             <div className="flex justify-between items-center">
               <h1 className="text-5xl font-bold text-[#FFC311]">{title}</h1>
               <div className="flex gap-8 items-center">
-                <button  className="text-5xl text-[#FFC311] tooltip" data-tip='Update Your Review'><MdOutlineEdit /></button>
+                <Link to={`/update-reviews/${_id}`}><button className="text-5xl text-[#FFC311] tooltip" data-tip='Update Your Review'><MdOutlineEdit /></button></Link>
                 <button onClick={()=>handleDelete(_id)} className="text-5xl text-[#FFC311] tooltip" data-tip='Delete Your Review'><MdDeleteSweep /></button>
               </div>
            </div>

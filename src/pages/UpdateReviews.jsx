@@ -1,0 +1,201 @@
+import NavBar from "../components/NavBar";
+import { useContext } from "react";
+import { authContext } from "../provider/AuthProvider";
+import Footer from "../components/Footer";
+import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
+
+
+const UpdateReviews = () => {
+  const { user } = useContext(authContext)
+  const allReviews = useLoaderData()
+  const { _id, image, title, description, rating, year, genre } = allReviews
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const form = e.target
+    const image = form.image.value
+    const title = form.title.value
+    const description = form.description.value
+    const rating = form.rating.value
+    const year = form.year.value
+    const genre = form.genre.value
+    const userEmail = user.email
+    const userName = user.displayName
+
+    const allInfo = { image, title, description, rating, year, genre, userEmail, userName };
+
+    fetch(`http://localhost:5000/all-reviews/${_id}`, {
+      method: 'PUT',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(allInfo)
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        if (data.modifiedCount> 0) {
+          Swal.fire({
+            title: "Review",
+            text: "Review Updated",
+            icon: "success"
+          });
+        }
+        form.reset()
+        form.genre.value = "Genres"
+      })
+  }
+
+  return (
+    <div >
+
+      <div>
+
+
+        <header>
+          <NavBar />
+        </header>
+
+
+
+        <main>
+          <div className="h-[600px] flex justify-center items-center">
+
+            <div className="card bg-base-100  shrink-0 p-10 rounded-2xl">
+              <h2 className="text-3xl font-bold text-center">Update Reviews</h2>
+              <form onSubmit={handleSubmit} className="card-body space-y-2">
+
+                <div className="flex items-center gap-4">
+                  <div className="form-control">
+                    <input
+                      defaultValue={image}
+                      type="text"
+                      name="image"
+                      
+                      placeholder="Game Cover Image"
+                      className="input border-2 border-[#F3F3F3] rounded-2xl"
+                      required
+                    />
+
+                  </div>
+                  <div className="form-control">
+                    <input
+                      type="text"
+                      name="title"
+                      defaultValue={title}
+                      placeholder="Game Title"
+                      className="input border-2 border-[#F3F3F3] rounded-2xl"
+                      required
+                    />
+                  </div>
+                </div>
+                <div className="flex items-center gap-4">
+                  <div className="form-control">
+
+                    <input
+                      type="text"
+                      name="description"
+                      defaultValue={description}
+                      placeholder="Review Description"
+                      className="input border-2 border-[#F3F3F3] rounded-2xl"
+                      required
+                    />
+                  </div>
+                  <div className="form-control">
+
+                    <input
+                      type="number"
+                      name="rating"
+                      defaultValue={rating}
+                      placeholder="Rating 1-5"
+                      step="any"
+                      min="1"
+                      max="5"
+                      className="input border-2 border-[#F3F3F3] rounded-2xl [&::-webkit-inner-spin-button]:appearance-none "
+                      required
+                    />
+
+
+                  </div>
+                </div>
+                <div className="flex items-center gap-4">
+
+                  <div className="form-control">
+
+                    <input
+                      type="text"
+                      name="year"
+                      defaultValue={year}
+                      placeholder="Publishing Year"
+                      className="input border-2 border-[#F3F3F3] rounded-2xl"
+                      required
+                    />
+
+
+                  </div>
+
+                  <div className="form-control">
+
+                    <select name="genre" defaultValue={genre} className="select w-[215px] border-2 border-[#F3F3F3] rounded-2xl">
+                      <option disabled selected>Genres </option>
+                      <option value={'Action'}>Action</option>
+                      <option value={'RPG'}>RPG</option>
+                      <option value={'Adventure'}>Adventure</option>
+                    </select>
+
+
+                  </div>
+
+                </div>
+                <div className="flex items-center gap-4">
+                  <div className="form-control">
+
+                    <input
+                      type="text"
+                      defaultValue={user?.displayName} readOnly
+                      className="input border-2 border-[#F3F3F3] rounded-2xl"
+                      required
+                    />
+
+
+                  </div>
+
+                  <div className="form-control">
+
+                    <input
+                      type="email"
+                      defaultValue={user?.email} readOnly
+                      className="input border-2 border-[#F3F3F3] rounded-2xl"
+                      required
+                    />
+
+
+                  </div>
+                </div>
+
+
+
+                <div className="form-control mt-2">
+                  <button className="btn bg-[#FFC311] rounded-lg text-white">Update Review</button>
+                </div>
+              </form>
+
+            </div>
+          </div>
+
+        </main>
+
+
+
+      </div>
+      <footer>
+        <Footer />
+      </footer>
+    </div>
+  );
+};
+
+export default UpdateReviews;
