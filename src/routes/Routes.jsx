@@ -10,6 +10,7 @@ import MyReviews from "../pages/MyReviews";
 import PrivateRoutes from "./PrivateRoutes";
 import UpdateReviews from "../pages/UpdateReviews";
 import WatchList from "../pages/WatchList";
+import Error from "../pages/Error";
 
 
 
@@ -58,7 +59,11 @@ const router = createBrowserRouter([
   {
     path: '/my-watchlist',
     element: <PrivateRoutes><WatchList /></PrivateRoutes>
-  }
+  },
+  {
+    path: '*',
+    element: <Error />,
+  },
 ]);
 
 
