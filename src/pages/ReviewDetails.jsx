@@ -4,12 +4,16 @@ import { FaHeartCirclePlus } from "react-icons/fa6";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Swal from "sweetalert2";
+import { useContext } from "react";
+import { authContext } from "../provider/AuthProvider";
 
 
 const ReviewDetails = () => {
   const reviewDetails = useLoaderData()
-  const { _id, image, title, description, rating, year, genre, userEmail, userName } = reviewDetails
-  const allData = { _id, image, title, description, rating, year, genre, userEmail, userName }
+  const { user } = useContext(authContext)
+  const {email, displayName} = user 
+  const { _id, image, title, description, rating, year, genre, userName } = reviewDetails
+  const allData = { _id, image, title, description, rating, year, genre, email, displayName }
   
   const ratting = parseFloat(rating)
   const watchListHandelar = () => {

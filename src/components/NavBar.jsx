@@ -79,7 +79,7 @@ const NavBar = () => {
                     : `${location !== "/" && location !== "/add-reviews" ? " text-black text-sm" : "text-white text-sm"
                     }`
                 }
-                to="/game-watchlist"
+                to="/my-watchlist"
               >
                 Game WatchList
               </NavLink>

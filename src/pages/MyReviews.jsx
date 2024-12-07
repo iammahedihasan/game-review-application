@@ -26,9 +26,9 @@ const MyReviews = () => {
       </header>
 
       <div>
-        <h2 className="text-[#FFC311] font-bold text-3xl mt-8 mb-4 md:pl-60">Your Reviews</h2>
+        <h2 className="text-[#FFC311] font-bold text-3xl mt-8 mb-8 text-center">Your Reviews</h2>
       </div>
-      <main>
+      <main className="mb-20">
         
         {
           myReview.map(review=> <MyreviewCard key={review._id} review={review} setReview={setReview} myReview={myReview}></MyreviewCard>)
