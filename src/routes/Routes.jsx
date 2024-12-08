@@ -11,6 +11,7 @@ import PrivateRoutes from "./PrivateRoutes";
 import UpdateReviews from "../pages/UpdateReviews";
 import WatchList from "../pages/WatchList";
 import Error from "../pages/Error";
+import Home from "../pages/Home";
 
 
 
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
+    children: [{
+      path: '/',
+      element: <Home />,
+    }]
   },
   {
     path: "/sign-in",

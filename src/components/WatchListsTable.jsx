@@ -9,8 +9,7 @@ const WatchListsTable = ({ w, setWatchLists, watchLists }) => {
   const { user } = useContext(authContext)
   const {email} = user
   const { image, title, description, rating, year, genre } = w
-  
-  const ratting = parseFloat(rating)
+
   
 
   return (
@@ -35,7 +34,7 @@ const WatchListsTable = ({ w, setWatchLists, watchLists }) => {
                   </div>
                   <div>
                     <div className="font-bold">{title}</div>
-                    <div className="text-sm opacity-50"> <div className="flex items-center  gap-8  "><span><span className="font-bold mr-2">{genre}.</span> <span className="text-[#FFC311]">PUblish: {year}</span></span> <span><Star ratting={ratting} /></span></div></div>
+                    <div className="text-sm opacity-50"> <div className="flex items-center  gap-8  "><span><span className="font-bold mr-2">{genre}.</span> <span className="text-[#FFC311]">PUblish: {year}</span></span> <span><Star ratting={rating} /></span></div></div>
                   </div>
 
 

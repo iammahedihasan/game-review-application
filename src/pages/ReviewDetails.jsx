@@ -15,7 +15,6 @@ const ReviewDetails = () => {
   const { _id, image, title, description, rating, year, genre, userName } = reviewDetails
   const allData = {  image, title, description, rating, year, genre, email, displayName }
   
-  const ratting = parseFloat(rating)
   const watchListHandelar = () => {
 
     fetch('http://localhost:5000/watchlists', {
@@ -59,7 +58,7 @@ const ReviewDetails = () => {
             className="h-96 rounded-lg shadow-2xl" />
           <div>
             <h1 className="text-5xl font-bold text-[#FFC311]">{title}</h1>
-            <div className="flex items-center  gap-8 mb-3  px-2 my-4"><span><span className="font-bold mr-2">{genre}.</span> <span className="text-[#FFC311]">PUblish: {year}</span></span> <span><Star ratting={ratting} /></span></div>
+            <div className="flex items-center  gap-8 mb-3  px-2 my-4"><span><span className="font-bold mr-2">{genre}.</span> <span className="text-[#FFC311]">PUblish: {year}</span></span> <span><Star ratting={rating} /></span></div>
             <h3 className="bg-[#FFC311] px-3 py-2 text-white uppercase">Reviewer Name: <span className="font-bold">{userName}</span></h3>
             <p className="py-6 text-lg font-medium">
               <span className="font-bold text-[#FFC311]  mr-2">Review This Game:</span> 

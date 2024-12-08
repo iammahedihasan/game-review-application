@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 
 const MyreviewCard = ({ review, setReview, myReview }) => {
   const {_id, image, title, description, rating, year, genre } = review
-  const ratting = parseFloat(rating)
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -61,7 +60,7 @@ const MyreviewCard = ({ review, setReview, myReview }) => {
                   </div>
                   <div>
                     <div className="font-bold">{title}</div>
-                    <div className="text-sm opacity-50"> <div className="flex items-center  gap-8  "><span><span className="font-bold mr-2">{genre}.</span> <span className="text-[#FFC311]">PUblish: {year}</span></span> <span><Star ratting={ratting} /></span></div></div>
+                    <div className="text-sm opacity-50"> <div className="flex items-center  gap-8  "><span><span className="font-bold mr-2">{genre}.</span> <span className="text-[#FFC311]">PUblish: {year}</span></span> <span><Star ratting={rating} /></span></div></div>
                   </div>
 
                   

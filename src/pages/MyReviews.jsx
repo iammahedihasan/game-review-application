@@ -17,7 +17,7 @@ const MyReviews = () => {
         setReview(data)
         console.log(data);
     })
-},[])
+},[user.email])
 
   return (
     <div>
