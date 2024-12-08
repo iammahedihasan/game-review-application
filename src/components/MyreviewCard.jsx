@@ -47,9 +47,9 @@ const MyreviewCard = ({ review, setReview, myReview }) => {
           
           <tbody>
            
-            <tr className="flex gap-44 items-center mb-6">
+            <tr className="flex gap-10 md:gap-44 items-center mb-6">
               
-              <td className="w-[500px] ">
+              <td className="w-56 md:w-[500px] ">
               <div className="flex items-center  gap-3 justify-start">
                   <div className="avatar">
                     <div className="mask mask-squircle h-12 w-12">
@@ -59,8 +59,8 @@ const MyreviewCard = ({ review, setReview, myReview }) => {
                     </div>
                   </div>
                   <div>
-                    <div className="font-bold">{title}</div>
-                    <div className="text-sm opacity-50"> <div className="flex items-center  gap-8  "><span><span className="font-bold mr-2">{genre}.</span> <span className="text-[#FFC311]">PUblish: {year}</span></span> <span><Star ratting={rating} /></span></div></div>
+                    <div className="font-bold text-sm md:text-base">{title}</div>
+                    <div className="text-sm opacity-50"> <div className="flex items-center gap-2 md:gap-8  "><span><span className="font-bold mr-2">{genre}.</span> <span className="text-[#FFC311] hidden md:block">PUblish: {year}</span></span> <span className="text-xs md:text-base"><Star ratting={rating} /></span></div></div>
                   </div>
 
                   
@@ -68,8 +68,8 @@ const MyreviewCard = ({ review, setReview, myReview }) => {
                
             </td>
             
-            <td className="flex flex-col justify-start"><div className="flex gap-8 items-center">
-              <Link to={`/update-reviews/${_id}`}><button className="text-white flex items-center gap-2 px-4 py-1 bg-[#FFC311] tooltip" data-tip='Update Your Review'><MdOutlineEdit />Update</button></Link>
+            <td className="flex flex-col justify-start"><div className="flex md:gap-8 gap-2 items-center">
+              <Link to={`/update-reviews/${_id}`}><button className="text-white text-sm md:text-base flex items-center gap-2 md:px-4 px-1 py-1 bg-[#FFC311] tooltip" data-tip='Update Your Review'><MdOutlineEdit /><span className="hidden md:block">Update</span></button></Link>
               <button onClick={() => handleDelete(_id)} className="text-2xl text-[#FFC311] tooltip" data-tip='Delete Your Review'><MdDeleteSweep /></button>
             </div></td>
               

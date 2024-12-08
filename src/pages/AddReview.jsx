@@ -59,19 +59,19 @@ const AddReview = () => {
         
         
         <main>
-            <div className="h-[600px] flex justify-center items-center">
+            <div className="h-[800px] md:h-[600px] flex justify-center items-center">
 
-              <div className="card bg-base-100  shrink-0 p-10 rounded-2xl">
-                <h2 className="text-3xl font-bold text-center">Add Reviews</h2>
-                <form onSubmit={handleSubmit}  className="card-body space-y-2">
+              <div className="card bg-base-100  shrink-0 md:p-10 p-0 rounded-2xl">
+                <h2 className="text-3xl font-bold text-center mt-4 md:mt-0">Add Reviews</h2>
+                <form onSubmit={handleSubmit}  className="card-body  space-y-2">
 
-                 <div className="flex items-center gap-4">
+                 <div className="flex flex-col md:flex-row items-center gap-4">
                     <div className="form-control">
                       <input
                         type="text"
                         name="image"
                       placeholder="Game Cover Image"
-                        className="input border-2 border-[#F3F3F3] rounded-2xl"
+                        className="input border-2 border-[#F3F3F3] rounded-2xl w-72 md:w-full "
                         required
                       />
   
@@ -81,19 +81,19 @@ const AddReview = () => {
                         type="text"
                         name="title"
                       placeholder="Game Title"
-                        className="input border-2 border-[#F3F3F3] rounded-2xl"
+                      className="input border-2 border-[#F3F3F3] rounded-2xl w-72 md:w-full"
                         required
                       />
                     </div>
                  </div>
-                 <div className="flex items-center gap-4">
+                <div className="flex flex-col md:flex-row items-center gap-4">
                     <div className="form-control">
   
                       <input
                         type="text"
                         name="description"
                       placeholder="Review Description"
-                        className="input border-2 border-[#F3F3F3] rounded-2xl"
+                      className="input border-2 border-[#F3F3F3] rounded-2xl w-72 md:w-full"
                         required
                       />
                     </div>
@@ -106,14 +106,14 @@ const AddReview = () => {
                       step="any"
                       min="1"
                       max="5"
-                      className="input border-2 border-[#F3F3F3] rounded-2xl [&::-webkit-inner-spin-button]:appearance-none "
+                      className="input border-2 border-[#F3F3F3] rounded-2xl [&::-webkit-inner-spin-button]:appearance-none w-72 md:w-full"
                         required
                       />
   
   
                   </div>
                  </div>
-              <div className="flex items-center gap-4">
+                <div className="flex flex-col md:flex-row items-center gap-4">
                   
                   <div className="form-control">
   
@@ -121,7 +121,7 @@ const AddReview = () => {
                       type="text"
                       name="year"
                       placeholder="Publishing Year"
-                      className="input border-2 border-[#F3F3F3] rounded-2xl"
+                      className="input border-2 border-[#F3F3F3] rounded-2xl w-72 md:w-full"
                       required
                     />
   
@@ -130,7 +130,7 @@ const AddReview = () => {
   
                   <div className="form-control">
   
-                    <select name="genre" className="select w-[215px] border-2 border-[#F3F3F3] rounded-2xl">
+                    <select name="genre" className="select md:w-[215px] w-72 border-2 border-[#F3F3F3] rounded-2xl">
                       <option disabled selected>Genres </option>
                       <option value={'Action'}>Action</option>
                       <option value={'RPG'}>RPG</option>
@@ -141,13 +141,13 @@ const AddReview = () => {
                   </div>
   
               </div>
-                <div className="flex items-center gap-4">
+                <div className="flex flex-col md:flex-row items-center gap-4">
                   <div className="form-control">
   
                     <input
                       type="text"
                       defaultValue={user?.displayName} readOnly
-                      className="input border-2 border-[#F3F3F3] rounded-2xl"
+                      className="input border-2 border-[#F3F3F3] rounded-2xl w-72 md:w-full"
                       required
                     />
   
@@ -159,7 +159,7 @@ const AddReview = () => {
                     <input
                       type="email"
                       defaultValue={user?.email} readOnly
-                      className="input border-2 border-[#F3F3F3] rounded-2xl"
+                      className="input border-2 border-[#F3F3F3] rounded-2xl w-72 md:w-full"
                       required
                     />
   

@@ -8,7 +8,7 @@ import toast, { Toaster } from "react-hot-toast";
 
 
 const SignUp = () => {
-  const { createUser, signUpGoogle, signUpGithub, updateUser } = useContext(authContext)
+  const { createUser, signUpGoogle, updateUser } = useContext(authContext)
   const navigate = useNavigate()
   const location = useLocation()
 
@@ -69,16 +69,16 @@ const SignUp = () => {
  
   
   return (
-    <div className="bg-Gaming">
+    <div className="bg-Gaming bg-cover bg-center min-h-screen">
       <Toaster/>
       <div>
         <NavBar/>
      </div>
-      <div className="min-h-screen flex justify-center items-center">
+      <div className=" h-[800px] mx-10 flex justify-center items-center">
      
         <div className="card bg-base-100 w-full max-w-lg shrink-0 p-10 rounded-2xl">
-          <h2 className="text-3xl font-bold text-center">SignUp Account</h2>
-          <form onSubmit={handleSignUp} className="card-body">
+          <h2 className="md:text-3xl text-xl font-bold text-center mb-4 md:mb-0">SignUp Account</h2>
+          <form onSubmit={handleSignUp} className="card-body p-0 md:p-8">
   
             <div className="form-control mb-3">
               <input
@@ -126,7 +126,7 @@ const SignUp = () => {
               <button className="btn bg-[#FFC311] rounded-lg text-white">SignUp</button>
             </div>
           </form>
-          <p className="text-center">
+          <p className="text-center mt-4 md:mt-0">
             AllReady Have An Account ?{' '}
             <Link className="text-[#FFC311] font-bold" to="/sign-in">
               SignIn

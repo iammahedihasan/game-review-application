@@ -13,7 +13,7 @@ const AllReview = () => {
       <header>
         <NavBar/>
       </header>
-      <div className="grid grid-cols-4  gap-10 w-9/12 mx-auto my-10 ">
+      <div className="grid md:grid-cols-3 lg:grid-cols-4 grid-cols-1 place-items-center  gap-10 w-9/12 mx-auto my-10 ">
         {
           review.map(r=> <ReviewCard key={r._id} r={r}></ReviewCard> )
         }

@@ -105,7 +105,7 @@ const NavBar = () => {
     })
   }
   return (
-    <div className="navbar bg-transparent font-kani px-10">
+    <div className="navbar bg-transparent font-kani px-0 md:px-10">
       <ToastContainer
         position="top-center"
         autoClose={3000}
@@ -136,12 +136,12 @@ const NavBar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+            className={`${location !== "/" && location !== "/add-reviews" ? " text-black bg-white menu menu-sm dropdown-content  rounded-box z-[1] mt-3 w-52 p-2 shadow" : "text-white bg-black menu menu-sm dropdown-content  rounded-box z-[1] mt-3 w-52 p-2 shadow"}`}>
             {links}
           </ul>
         </div>
         <div>
-          <h2 className={`${location !== "/" && location !== "/add-reviews" ? " text-black font-bold text-2xl uppercase font-Game" : "text-white font-Game font-bold text-2xl uppercase"}`}>Game<span className='text-[#FFC311]'>Review</span></h2>
+          <h2 className={`${location !== "/" && location !== "/add-reviews" ? " text-black font-bold md:text-2xl text-base uppercase font-Game" : "text-white font-Game font-bold md:text-2xl text-base uppercase"}`}>Game<span className='text-[#FFC311]'>Review</span></h2>
         </div>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -161,20 +161,20 @@ const NavBar = () => {
               </div>
             </div>
             <div>
-              <button onClick={handleSignOut} className="text-white bg-[#FFC311]  px-4 py-1  font-bold mr-4">Sign Out</button>
+              <button onClick={handleSignOut} className="text-white text-sm md:text-base bg-[#FFC311]  px-4 py-1  font-bold mr-4">Sign Out</button>
            </div>
 
           </div> : <>
               <Link
                 to="/sign-in"
-                className="text-white bg-[#FFC311]  px-4 py-1  font-bold mr-4"
+                className="text-white bg-[#FFC311]  px-4 py-1  font-bold mr-4 text-sm md:text-base"
               >
                 <button>SignIn</button>
               </Link>
 
               <Link
                 to="/sign-up"
-                className="text-white bg-[#FFC311]  px-4 py-1  font-bold mr-4"
+                className="text-white bg-[#FFC311]  px-4 py-1  font-bold mr-4 text-sm md:text-base"
               >
                 <button>SignUp</button>
               </Link>

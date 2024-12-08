@@ -24,7 +24,7 @@ const Home = () => {
         <div>
           <h2 className="bg-[#FFC311] py-2 font-bold text-3xl mt-8 mb-8 text-center text-white">Highest Rated Games</h2>
         </div>
-        <main className="grid grid-cols-4 gap-3 ">
+        <main className="grid md:grid-cols-3 lg:grid-cols-4 grid-cols-1 place-items-center gap-8 md:gap-3 ">
           {
             sort.map(ratings=> <SortByRatings key={ratings._id} ratings={ratings}></SortByRatings>)
           }
@@ -34,7 +34,7 @@ const Home = () => {
             <h2 className="text-4xl text-center font-bold uppercase ">Game<span className="text-[#FFC311]">Shop</span></h2>
           </div>
           {/* container */}
-          <div className="grid grid-cols-3 my-10 place-self-center gap-5">
+          <div className="grid grid-cols-1 place-items-center md:grid-cols-3 my-10 place-self-center md:gap-5 gap-8">
             <div className="card bg-base-100 w-96 rounded-none">
               <figure>
                 <img

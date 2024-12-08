@@ -62,13 +62,13 @@ const UpdateReviews = () => {
 
 
         <main>
-          <div className="h-[600px] flex justify-center items-center">
+          <div className="md:h-[600px] h-[800px] flex justify-center items-center">
 
-            <div className="card bg-base-100  shrink-0 p-10 rounded-2xl">
+            <div className="card bg-base-100  shrink-0 md:p-10 p-0 rounded-2xl">
               <h2 className="text-3xl font-bold text-center">Update Reviews</h2>
               <form onSubmit={handleSubmit} className="card-body space-y-2">
 
-                <div className="flex items-center gap-4">
+                <div className="flex flex-col md:flex-row items-center gap-4">
                   <div className="form-control">
                     <input
                       defaultValue={image}
@@ -76,7 +76,7 @@ const UpdateReviews = () => {
                       name="image"
                       
                       placeholder="Game Cover Image"
-                      className="input border-2 border-[#F3F3F3] rounded-2xl"
+                      className="input border-2 border-[#F3F3F3] rounded-2xl w-72 md:w-full"
                       required
                     />
 
@@ -87,12 +87,12 @@ const UpdateReviews = () => {
                       name="title"
                       defaultValue={title}
                       placeholder="Game Title"
-                      className="input border-2 border-[#F3F3F3] rounded-2xl"
+                      className="input border-2 border-[#F3F3F3] rounded-2xl w-72 md:w-full"
                       required
                     />
                   </div>
                 </div>
-                <div className="flex items-center gap-4">
+                <div className="flex flex-col md:flex-row items-center gap-4">
                   <div className="form-control">
 
                     <input
@@ -100,7 +100,7 @@ const UpdateReviews = () => {
                       name="description"
                       defaultValue={description}
                       placeholder="Review Description"
-                      className="input border-2 border-[#F3F3F3] rounded-2xl"
+                      className="input border-2 border-[#F3F3F3] rounded-2xl w-72 md:w-full"
                       required
                     />
                   </div>
@@ -114,14 +114,14 @@ const UpdateReviews = () => {
                       step="any"
                       min="1"
                       max="5"
-                      className="input border-2 border-[#F3F3F3] rounded-2xl [&::-webkit-inner-spin-button]:appearance-none "
+                      className="input border-2 border-[#F3F3F3] rounded-2xl [&::-webkit-inner-spin-button]:appearance-none w-72 md:w-full"
                       required
                     />
 
 
                   </div>
                 </div>
-                <div className="flex items-center gap-4">
+                <div className="flex flex-col md:flex-row items-center gap-4">
 
                   <div className="form-control">
 
@@ -130,7 +130,7 @@ const UpdateReviews = () => {
                       name="year"
                       defaultValue={year}
                       placeholder="Publishing Year"
-                      className="input border-2 border-[#F3F3F3] rounded-2xl"
+                      className="input border-2 border-[#F3F3F3] rounded-2xl w-72 md:w-full"
                       required
                     />
 
@@ -139,7 +139,7 @@ const UpdateReviews = () => {
 
                   <div className="form-control">
 
-                    <select name="genre" defaultValue={genre} className="select w-[215px] border-2 border-[#F3F3F3] rounded-2xl">
+                    <select name="genre" defaultValue={genre} className="select md:w-[215px] w-72 border-2 border-[#F3F3F3] rounded-2xl ">
                       <option disabled selected>Genres </option>
                       <option value={'Action'}>Action</option>
                       <option value={'RPG'}>RPG</option>
@@ -150,13 +150,13 @@ const UpdateReviews = () => {
                   </div>
 
                 </div>
-                <div className="flex items-center gap-4">
+                <div className="flex flex-col md:flex-row items-center gap-4">
                   <div className="form-control">
 
                     <input
                       type="text"
                       defaultValue={user?.displayName} readOnly
-                      className="input border-2 border-[#F3F3F3] rounded-2xl"
+                      className="input border-2 border-[#F3F3F3] rounded-2xl w-72 md:w-full"
                       required
                     />
 
@@ -168,7 +168,7 @@ const UpdateReviews = () => {
                     <input
                       type="email"
                       defaultValue={user?.email} readOnly
-                      className="input border-2 border-[#F3F3F3] rounded-2xl"
+                      className="input border-2 border-[#F3F3F3] rounded-2xl w-72 md:w-full"
                       required
                     />
 

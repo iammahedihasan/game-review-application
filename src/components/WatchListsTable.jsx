@@ -14,17 +14,17 @@ const WatchListsTable = ({ w, setWatchLists, watchLists }) => {
 
   return (
     <div>
-      <div className="flex justify-center">
+      <div className="flex justify-center ">
 
         <table>
 
 
           <tbody>
 
-            <tr className="flex  items-center mb-6">
+            <tr className="flex items-center mb-6">
 
-              <td>
-                <div className="flex items-center  gap-3 justify-start">
+              <td className="w-80 flex ">
+                <div className="flex items-center  gap-3 ">
                   <div className="avatar">
                     <div className="mask mask-squircle h-12 w-12">
                       <img

@@ -7,7 +7,7 @@ import toast, { Toaster } from "react-hot-toast";
 
 
 const SignIn = () => {
-  const { signInUser, signUpGoogle, signUpGithub } = useContext(authContext)
+  const { signInUser, signUpGoogle } = useContext(authContext)
   const navigate = useNavigate()
   const location = useLocation()
   const handleSignIn = e => {
@@ -50,16 +50,16 @@ const SignIn = () => {
 
   
   return (
-    <div className="bg-Gaming">
+    <div className="bg-Gaming bg-cover bg-center min-h-screen">
       <Toaster />
       
       <div>
         <NavBar />
       </div>
-      <div className="min-h-screen flex justify-center items-center ">
-        <div className="card bg-base-100 w-full max-w-lg shrink-0 p-10 rounded-2xl">
-          <h2 className="text-3xl font-bold text-center">SignIn Account</h2>
-          <form onSubmit={handleSignIn} className="card-body">
+      <div className=" flex justify-center items-center h-[800px] mx-10">
+        <div className="card bg-base-100 w-full max-w-lg shrink-0 p-10  rounded-2xl">
+          <h2 className="md:text-3xl text-xl font-bold text-center mb-4 md:mb-0">SignIn Account</h2>
+          <form onSubmit={handleSignIn} className="card-body p-0 md:p-8">
             <div className="form-control mb-3">
               
               <input
@@ -91,7 +91,7 @@ const SignIn = () => {
               <button className="btn bg-[#FFC311] rounded-lg text-white">SignIn</button>
             </div>
           </form>
-          <p className="text-center">
+          <p className="text-center mt-4 md:mt-0">
             Dont’t Have An Account ?{' '}
             <Link className="text-[#FFC311] font-bold" to="/sign-up">
               SignUp
