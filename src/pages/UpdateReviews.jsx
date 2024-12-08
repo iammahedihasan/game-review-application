@@ -19,7 +19,7 @@ const UpdateReviews = () => {
     const image = form.image.value
     const title = form.title.value
     const description = form.description.value
-    const rating = form.rating.value
+    const rating = parseFloat(form.rating.value)
     const year = form.year.value
     const genre = form.genre.value
     const userEmail = user.email

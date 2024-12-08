@@ -3,6 +3,7 @@ import { authContext } from "../provider/AuthProvider";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import MyreviewCard from "../components/MyreviewCard";
+import { Typewriter } from "react-simple-typewriter";
 
 
 const MyReviews = () => {
@@ -26,7 +27,15 @@ const MyReviews = () => {
       </header>
 
       <div>
-        <h2 className="text-[#FFC311] font-bold text-3xl mt-8 mb-8 text-center">Your Reviews</h2>
+        <h2 className="text-[#FFC311] font-bold text-3xl mt-8 mb-10 text-center uppercase"><Typewriter
+          words={['My Reviews']}
+          loop={true}
+          cursor
+          cursorStyle='|'
+          typeSpeed={100}
+          deleteSpeed={50}
+          delaySpeed={2000}
+        /></h2>
       </div>
       <main className="mb-20">
 
