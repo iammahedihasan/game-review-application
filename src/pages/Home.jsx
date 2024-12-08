@@ -6,27 +6,27 @@ import img3 from "../assets/product-3-560x500.jpg"
 
 
 const Home = () => {
-  const [sort,setSort] = useState([])
+  const [sort, setSort] = useState([])
 
   useEffect(() => {
-    fetch('http://localhost:5000/all-reviews?sortBy="rating"')
+    fetch('https://game-review-server-sandy.vercel.app/all-reviews?sortBy="rating"')
       .then(res => res.json())
       .then(data => {
         setSort(data)
-        console.log(data);
+
       })
   }, [])
-  
-  
+
+
   return (
-  <div className="mb-28">
+    <div className="mb-28">
       <div className="w-10/12 mx-auto mb-20 mt-20">
         <div>
           <h2 className="bg-[#FFC311] py-2 font-bold text-3xl mt-8 mb-8 text-center text-white">Highest Rated Games</h2>
         </div>
         <main className="grid md:grid-cols-3 lg:grid-cols-4 grid-cols-1 place-items-center gap-8 md:gap-3 ">
           {
-            sort.map(ratings=> <SortByRatings key={ratings._id} ratings={ratings}></SortByRatings>)
+            sort.map(ratings => <SortByRatings key={ratings._id} ratings={ratings}></SortByRatings>)
           }
         </main>
         <section className="my-16">
@@ -44,10 +44,10 @@ const Home = () => {
               <div className="py-2 px-2">
                 <h2 className="card-title text-3xl uppercase font-bold mb-2">Game Pack DVD</h2>
                 <p className="text-[#FFC311] font-bold text-4xl">$99</p>
-                
+
               </div>
             </div>
-  
+
             {/* 2 */}
             <div className="card bg-base-100 w-96 rounded-none">
               <figure>
@@ -58,10 +58,10 @@ const Home = () => {
               <div className="py-2 px-2">
                 <h2 className="card-title text-3xl uppercase font-bold mb-2">Office Coffee Pack</h2>
                 <p className="text-[#FFC311] font-bold text-4xl">$59</p>
-  
+
               </div>
             </div>
-  
+
             {/* 3 */}
             <div className="card bg-base-100 w-96 rounded-none">
               <figure>
@@ -72,13 +72,13 @@ const Home = () => {
               <div className="py-2 px-2">
                 <h2 className="card-title text-3xl uppercase font-bold mb-2">Pulse Headphone</h2>
                 <p className="text-[#FFC311] font-bold text-4xl">$119</p>
-  
+
               </div>
             </div>
           </div>
         </section>
-  
-     
+
+
       </div>
       <section>
 
@@ -119,7 +119,7 @@ const Home = () => {
 
 
       </section>
-  </div>
+    </div>
   );
 };
 

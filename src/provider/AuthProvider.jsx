@@ -22,7 +22,7 @@ const AuthProvider = ({ children }) => {
   const [loading,setLoading] = useState(true)
   const auth = getAuth(app)
   const googleProvider = new GoogleAuthProvider();
-console.log(user);
+
 
   useEffect(() => {
     const unsubcribe = onAuthStateChanged(auth, currentUser => {

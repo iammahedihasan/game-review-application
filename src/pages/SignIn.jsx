@@ -19,7 +19,7 @@ const SignIn = () => {
     
     signInUser(email, password)
       .then(res => {
-        console.log(res);
+        
         toast.success('SignIn Successfull')
         form.reset()
         setTimeout(() => {
@@ -28,7 +28,7 @@ const SignIn = () => {
 
       })
       .catch(err => {
-        console.log(err.massage);
+        
         toast.error('Enter Correct Email & Pass')
     })
   }
@@ -36,14 +36,14 @@ const SignIn = () => {
   const handleGoogle = () => {
     signUpGoogle()
       .then(res => {
-        console.log(res);
+        
         toast.success('SignIn Successfull')
         setTimeout(() => {
           navigate(location?.state ? location?.state : '/');
         }, 1000)
       })
       .catch(err => {
-        console.log(err);
+        
         toast.error('SignIn Unsuccessfull')
       })
   }

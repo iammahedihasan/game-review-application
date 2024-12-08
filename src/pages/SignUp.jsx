@@ -32,7 +32,7 @@ const SignUp = () => {
 
     createUser(email, password)
       .then(res => {
-        console.log(res);
+        
         updateUser({ displayName: name, photoURL: photo });
         Swal.fire({
           title: "SignUp",
@@ -45,7 +45,7 @@ const SignUp = () => {
         }, 1000)
       })
       .catch(err => {
-        console.log(err.massage);
+       
         toast.error('SignUp Unsuccessfull')
       })
     
@@ -54,14 +54,14 @@ const SignUp = () => {
   const handleGoogle = () => {
     signUpGoogle()
       .then(res => {
-        console.log(res);
+        
      toast.success('SignUp Successfull')
         setTimeout(() => {
           navigate(location?.state ? location?.state : '/');
         }, 1000)
       })
       .catch(err => {
-        console.log(err);
+        
         toast.error('SignUp Unsuccessfull')
     })
   }

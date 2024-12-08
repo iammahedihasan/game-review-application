@@ -44,22 +44,22 @@ const router = createBrowserRouter([
   {
     path: '/all-reviews',
     element: <AllReview />,
-    loader: () => fetch('http://localhost:5000/all-reviews')
+    loader: () => fetch('https://game-review-server-sandy.vercel.app/all-reviews')
   },
   {
     path: '/explore-details/:id',
     element: <PrivateRoutes><ReviewDetails /></PrivateRoutes>,
-    loader: ({ params }) => fetch(`http://localhost:5000/all-reviews/${params.id}`)
+    loader: ({ params }) => fetch(`https://game-review-server-sandy.vercel.app/all-reviews/${params.id}`)
   },
   {
     path: '/my-reviews',
     element: <PrivateRoutes><MyReviews /></PrivateRoutes>,
-    
+
   },
   {
     path: '/update-reviews/:id',
     element: <PrivateRoutes><UpdateReviews /></PrivateRoutes>,
-    loader: ({ params }) => fetch(`http://localhost:5000/all-reviews/${params.id}`)
+    loader: ({ params }) => fetch(`https://game-review-server-sandy.vercel.app/all-reviews/${params.id}`)
   },
   {
     path: '/my-watchlist',

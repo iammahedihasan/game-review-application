@@ -27,7 +27,7 @@ const UpdateReviews = () => {
 
     const allInfo = { image, title, description, rating, year, genre, userEmail, userName };
 
-    fetch(`http://localhost:5000/all-reviews/${_id}`, {
+    fetch(`https://game-review-server-sandy.vercel.app/all-reviews/${_id}`, {
       method: 'PUT',
       headers: {
         'content-type': 'application/json'
@@ -36,8 +36,8 @@ const UpdateReviews = () => {
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data);
-        if (data.modifiedCount> 0) {
+
+        if (data.modifiedCount > 0) {
           Swal.fire({
             title: "Review",
             text: "Review Updated",
@@ -74,7 +74,7 @@ const UpdateReviews = () => {
                       defaultValue={image}
                       type="text"
                       name="image"
-                      
+
                       placeholder="Game Cover Image"
                       className="input border-2 border-[#F3F3F3] rounded-2xl w-72 md:w-full"
                       required

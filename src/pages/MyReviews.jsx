@@ -8,35 +8,35 @@ import MyreviewCard from "../components/MyreviewCard";
 const MyReviews = () => {
   const { user } = useContext(authContext)
   const [myReview, setReview] = useState([])
-  
+
 
   useEffect(() => {
-    fetch(`http://localhost:5000/all-reviews?email=${user.email}`)
-    .then(res=> res.json())
+    fetch(`https://game-review-server-sandy.vercel.app/all-reviews?email=${user.email}`)
+      .then(res => res.json())
       .then(data => {
         setReview(data)
-        console.log(data);
-    })
-},[user.email])
+
+      })
+  }, [user.email])
 
   return (
     <div>
       <header>
-        <NavBar/>
+        <NavBar />
       </header>
 
       <div>
         <h2 className="text-[#FFC311] font-bold text-3xl mt-8 mb-8 text-center">Your Reviews</h2>
       </div>
       <main className="mb-20">
-        
+
         {
-          myReview.map(review=> <MyreviewCard key={review._id} review={review} setReview={setReview} myReview={myReview}></MyreviewCard>)
+          myReview.map(review => <MyreviewCard key={review._id} review={review} setReview={setReview} myReview={myReview}></MyreviewCard>)
         }
       </main>
 
       <footer>
-        <Footer/>
+        <Footer />
       </footer>
 
     </div>
