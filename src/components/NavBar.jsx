@@ -1,14 +1,31 @@
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { authContext } from '../provider/AuthProvider';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { IoSunnySharp } from 'react-icons/io5';
+import { CiDark } from 'react-icons/ci';
 
 const NavBar = () => {
 
   const { user, signOutUser } = useContext(authContext)
   const navigate = useNavigate()
   const location = useLocation().pathname
+  const [theme, setTheme] = useState(localStorage.getItem("theme") ? localStorage.getItem("theme") : "light")
+
+  const handleToggle = (e) => {
+    if (e.target.checked) {
+  setTheme("dark")
+    } else {
+      setTheme("light")
+}
+  }
+  
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+    const localTheme = localStorage.getItem("theme");
+    document.querySelector("html").setAttribute("data-theme" ,localTheme)
+  },[theme])
   
   const links = (
     <>
@@ -17,7 +34,7 @@ const NavBar = () => {
               className={({ isActive }) =>
                 isActive
               ? 'text-[#FFC311]    font-medium'
-              : `${location !== "/" && location!== "/add-reviews" ? " text-black text-sm" : "text-white text-sm"
+              : `${location !== "/" && location!== "/add-reviews" && theme !== "dark" ? " text-black text-sm" : "text-white text-sm"
           }`
               }
           
@@ -31,7 +48,7 @@ const NavBar = () => {
               className={({ isActive }) =>
                 isActive
               ? 'text-[#FFC311]     font-medium'
-              : `${location !== "/" && location !== "/add-reviews" ? " text-black text-sm" : "text-white text-sm"
+              : `${location !== "/" && location !== "/add-reviews" && theme !== "dark" ? " text-black text-sm" : "text-white text-sm"
               }`
               }
               to="/all-reviews"
@@ -47,7 +64,7 @@ const NavBar = () => {
                 className={({ isActive }) =>
                   isActive
                     ? 'text-[#FFC311]   font-medium'
-                    : `${location !== "/" && location !== "/add-reviews" ? " text-black text-sm" : "text-white text-sm"
+                    : `${location !== "/" && location !== "/add-reviews" && theme !== "dark" ?  " text-black text-sm" : "text-white text-sm"
                     }`
                 }
                 to="/add-reviews"
@@ -62,7 +79,7 @@ const NavBar = () => {
                 className={({ isActive }) =>
                   isActive
                     ? 'text-[#FFC311]  rounded-none  font-medium'
-                    : `${location !== "/" && location !== "/add-reviews" ? " text-black text-sm" : "text-white text-sm"
+                    : `${location !== "/" && location !== "/add-reviews" && theme !== "dark" ?  " text-black text-sm" : "text-white text-sm"
                     }`
                 }
                 to="/my-reviews"
@@ -76,7 +93,7 @@ const NavBar = () => {
                 className={({ isActive }) =>
                   isActive
                     ? 'text-[#FFC311] rounded-none  font-medium'
-                    : `${location !== "/" && location !== "/add-reviews" ? " text-black text-sm" : "text-white text-sm"
+                    : `${location !== "/" && location !== "/add-reviews" && theme !== "dark" ? " text-black text-sm" : "text-white text-sm"
                     }`
                 }
                 to="/my-watchlist"
@@ -150,6 +167,19 @@ const NavBar = () => {
         </ul>
       </div>
       <div className="navbar-end">
+        {/* dark mode toogle */}
+        <label className="swap swap-rotate mr-6">
+          {/* this hidden checkbox controls the state */}
+          <input type="checkbox" onChange={handleToggle} />
+
+          {/* sun icon */}
+          <IoSunnySharp className={`swap-on h-10 w-10 fill-current text-3xl ${theme == "dark" ? "text-white" : "text-black"}`} />
+
+          {/* moon icon */}
+          <CiDark className={`swap-off h-10 w-10 fill-current text-3xl ${theme == "dark" ? "text-white": "text-black"}`} />
+        </label>
+
+
         {
           user ? <div className='flex items-center'>
             <div className="tooltip  tooltip-left" data-tip={user.displayName}>
