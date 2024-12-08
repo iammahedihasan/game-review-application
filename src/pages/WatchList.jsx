@@ -37,7 +37,7 @@ const WatchList = () => {
           delaySpeed={2000}
         /></h2>
       </div>
-      <main className="my-10">
+      <main className=" min-h-[calc(100vh-388px)]">
         {
           watchLists.map(w => <WatchListsTable key={w._id} watchLists={watchLists} setWatchLists={setWatchLists} w={w} />)
         }

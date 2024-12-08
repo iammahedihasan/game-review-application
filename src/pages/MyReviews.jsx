@@ -37,7 +37,7 @@ const MyReviews = () => {
           delaySpeed={2000}
         /></h2>
       </div>
-      <main className="mb-20">
+      <main className="min-h-[calc(100vh-388px)]">
 
         {
           myReview.map(review => <MyreviewCard key={review._id} review={review} setReview={setReview} myReview={myReview}></MyreviewCard>)
