@@ -68,7 +68,7 @@ const AllReview = () => {
         <NavBar />
       </header>
       <div className="flex justify-between items-center w-9/12 mx-auto">
-        <h2 className="text-[#FFC311] font-bold text-3xl mt-8 mb-8  uppercase"><Typewriter
+        <h2 className="text-[#FFC311] font-bold md:text-3xl text-lg mt-8 mb-8  uppercase"><Typewriter
           words={['All Reviews']}
           loop={true}
           cursor
@@ -82,7 +82,7 @@ const AllReview = () => {
         <div>
 
           <details className="dropdown ">
-            <summary className="btn bg-black text-white hover:bg-black rounded-none m-1">{filter ? filter : "Filter By"}</summary>
+            <summary className="btn bg-black text-xs   md:text-base text-white hover:bg-black rounded-none m-1">{filter ? filter : "Filter By"}</summary>
             <ul className="menu dropdown-content bg-[#FFC311] text-white rounded-none z-[1] w-52 p-2 shadow">
               <li onClick={() => handleFilter('Action')}><a>Action</a></li>
               <li onClick={() => handleFilter('RPG')}><a>RPG</a></li>
@@ -91,7 +91,7 @@ const AllReview = () => {
           </details>
 
           <details className="dropdown ">
-            <summary className="btn bg-[#FFC311] text-white hover:bg-[#FFC311] rounded-none m-1">{sort ? sort : "Sort By"}</summary>
+            <summary className="btn text-xs  md:text-base bg-[#FFC311] text-white hover:bg-[#FFC311] rounded-none m-1">{sort ? sort : "Sort By"}</summary>
             <ul className="menu dropdown-content bg-[#FFC311] text-white rounded-none z-[1] w-52 p-2 shadow">
               <li onClick={() => handleSort('Ratings')}><a>Ratings</a></li>
               <li onClick={() => handleSort('Years')}><a>Years</a></li>

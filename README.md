@@ -7,7 +7,7 @@ This project is practice or assignment related project. Project name: Game Revie
 # key features:
 - Private Routes
 - Authentication With FireBase
-- Back-End Impliments
+- Back-End Implements
 - Store Data In DataBase Useing MongoDB
 - Fully Responsive
 
