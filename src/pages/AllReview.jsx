@@ -9,13 +9,66 @@ import { Typewriter } from "react-simple-typewriter";
 const AllReview = () => {
   const allReviews = useLoaderData()
   const [review, setReviews] = useState(allReviews)
+  const [sort, setSort] = useState()
+  const [filter, setFilter] = useState()
+  
+
+  const handleSort = sortType => {
+    setSort(sortType)
+
+    if (sortType === 'Ratings') {
+      fetch('https://game-review-server-sandy.vercel.app/all-reviews?ratings="sortratings"')
+        .then(res => res.json())
+        .then(data => {
+          setReviews(data)
+        })
+    }
+
+    if (sortType === 'Years') {
+      fetch('https://game-review-server-sandy.vercel.app/all-reviews?years="sortyears"')
+        .then(res => res.json())
+        .then(data => {
+          setReviews(data)
+        })
+    }
+
+  }
+
+  const handleFilter = (filterType) => {
+
+    setFilter(filterType)
+    if (filterType === "Action") {
+      fetch('https://game-review-server-sandy.vercel.app/all-reviews?action=Action')
+        .then(res => res.json())
+        .then(data => {
+          setReviews(data)
+        })
+    }
+
+    if (filterType === "RPG") {
+      fetch('https://game-review-server-sandy.vercel.app/all-reviews?rpg=RPG')
+        .then(res => res.json())
+        .then(data => {
+          setReviews(data)
+        })
+    }
+
+    if (filterType === "Adventure") {
+      fetch('https://game-review-server-sandy.vercel.app/all-reviews?adventure=Adventure')
+        .then(res => res.json())
+        .then(data => {
+          setReviews(data)
+        })
+    }
+  }
+
   return (
     <div >
       <header>
-        <NavBar/>
+        <NavBar />
       </header>
-      <div>
-        <h2 className="text-[#FFC311] font-bold text-3xl mt-8 mb-8 text-center uppercase"><Typewriter
+      <div className="flex justify-between items-center w-9/12 mx-auto">
+        <h2 className="text-[#FFC311] font-bold text-3xl mt-8 mb-8  uppercase"><Typewriter
           words={['All Reviews']}
           loop={true}
           cursor
@@ -24,14 +77,35 @@ const AllReview = () => {
           deleteSpeed={50}
           delaySpeed={2000}
         /></h2>
+
+
+        <div>
+
+          <details className="dropdown ">
+            <summary className="btn bg-black text-white hover:bg-black rounded-none m-1">{filter ? filter : "Filter By"}</summary>
+            <ul className="menu dropdown-content bg-[#FFC311] text-white rounded-none z-[1] w-52 p-2 shadow">
+              <li onClick={() => handleFilter('Action')}><a>Action</a></li>
+              <li onClick={() => handleFilter('RPG')}><a>RPG</a></li>
+              <li onClick={() => handleFilter('Adventure')}><a>Adventure</a></li>
+            </ul>
+          </details>
+
+          <details className="dropdown ">
+            <summary className="btn bg-[#FFC311] text-white hover:bg-[#FFC311] rounded-none m-1">{sort ? sort : "Sort By"}</summary>
+            <ul className="menu dropdown-content bg-[#FFC311] text-white rounded-none z-[1] w-52 p-2 shadow">
+              <li onClick={() => handleSort('Ratings')}><a>Ratings</a></li>
+              <li onClick={() => handleSort('Years')}><a>Years</a></li>
+            </ul>
+          </details>
+        </div>
       </div>
-      <div className="grid md:grid-cols-3 lg:grid-cols-4 grid-cols-1 place-items-center  gap-10 w-9/12 mx-auto my-10 ">
+      <div className="grid md:grid-cols-3 lg:grid-cols-4 grid-cols-1 place-items-center  gap-10 w-9/12 mx-auto mb-10 ">
         {
-          review.map(r=> <ReviewCard key={r._id} r={r}></ReviewCard> )
+          review.map(r => <ReviewCard key={r._id} r={r}></ReviewCard>)
         }
       </div>
       <footer>
-        <Footer/>
+        <Footer />
       </footer>
     </div>
   );
