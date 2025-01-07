@@ -23,14 +23,14 @@ const Hero = () => {
       <Slider {...settings}>
         <div className="relative">
           <img
-            className="h-[650px] w-full object-cover object-center"
+            className="h-[550px] w-full object-cover object-center"
             src={img1}
             alt="Slide 1"
           />
           <div className="absolute inset-0 bg-black bg-opacity-30"></div>
 
           <div className="absolute top-56 w-screen flex justify-center flex-col items-center  text-white">
-            <h2 className="md:text-7xl text-3xl font-bold text-center mb-6"><Typewriter
+            <h2 className="md:text-5xl text-3xl font-bold text-center mb-6"><Typewriter
               words={['Egypt and World']}
               loop={true}
               cursor
@@ -47,14 +47,14 @@ const Hero = () => {
         <div className="relative">
 
           <img
-            className="h-[650px] w-full object-cover object-center"
+            className="h-[550px] w-full object-cover object-center"
             src={img2}
             alt="Slide 2"
           />
           <div className="absolute inset-0 bg-black bg-opacity-30"></div>
 
           <div className="absolute top-56 w-screen flex justify-center flex-col items-center  text-white">
-            <h2 className="md:text-7xl text-3xl font-bold text-center mb-6"><Typewriter
+            <h2 className="md:text-5xl text-3xl font-bold text-center mb-6"><Typewriter
               words={['Forza Horizon 5']}
               loop={true}
               cursor
@@ -70,14 +70,14 @@ const Hero = () => {
         <div className="relative">
 
           <img
-            className="h-[650px] w-full object-cover object-center"
+            className="h-[550px] w-full object-cover object-center"
             src={img3}
             alt="Slide 3"
           />
           <div className="absolute inset-0 bg-black bg-opacity-30"></div>
 
           <div className="absolute top-56 w-screen flex justify-center flex-col items-center  text-white">
-            <h2 className="md:text-7xl text-3xl font-bold text-center mb-6"><Typewriter
+            <h2 className="md:text-5xl text-3xl font-bold text-center mb-6"><Typewriter
               words={['FIFA Football 24']}
               loop={true}
               cursor

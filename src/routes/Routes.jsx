@@ -12,6 +12,9 @@ import UpdateReviews from "../pages/UpdateReviews";
 import WatchList from "../pages/WatchList";
 import Error from "../pages/Error";
 import Home from "../pages/Home";
+import AboutUs from './../components/AboutUs';
+import Contact from "../components/Contact";
+import Support from "../components/Support";
 
 
 
@@ -26,44 +29,56 @@ const router = createBrowserRouter([
     }]
   },
   {
-    path: "/sign-in",
+    path: "sign-in",
     element: <SignIn />
   },
   {
-    path: "/sign-up",
+    path: "sign-up",
     element: <SignUp />
   },
   {
-    path: '/my-profile',
+    path: 'my-profile',
     element: <PrivateRoutes><MYProfile /></PrivateRoutes>
   },
   {
-    path: '/add-reviews',
+    path: 'add-reviews',
     element: <PrivateRoutes><AddReview /></PrivateRoutes>,
   },
   {
-    path: '/all-reviews',
-    element: <AllReview />,
+    path: 'all-reviews',
+    element: <PrivateRoutes><AllReview /></PrivateRoutes>,
     loader: () => fetch('https://game-review-server-sandy.vercel.app/all-reviews')
   },
   {
-    path: '/explore-details/:id',
+    path: 'explore-details/:id',
     element: <PrivateRoutes><ReviewDetails /></PrivateRoutes>,
     loader: ({ params }) => fetch(`https://game-review-server-sandy.vercel.app/all-reviews/${params.id}`)
   },
   {
-    path: '/my-reviews',
+    path: 'my-reviews',
     element: <PrivateRoutes><MyReviews /></PrivateRoutes>,
 
   },
   {
-    path: '/update-reviews/:id',
+    path: 'update-reviews/:id',
     element: <PrivateRoutes><UpdateReviews /></PrivateRoutes>,
     loader: ({ params }) => fetch(`https://game-review-server-sandy.vercel.app/all-reviews/${params.id}`)
   },
   {
-    path: '/my-watchlist',
+    path: 'my-watchlist',
     element: <PrivateRoutes><WatchList /></PrivateRoutes>
+  },
+  {
+    path: 'aboutus',
+    element: <AboutUs />,
+  },
+  {
+    path: 'contact',
+    element: <Contact />,
+  },
+  {
+    path: 'support',
+    element: <Support />,
   },
   {
     path: '*',

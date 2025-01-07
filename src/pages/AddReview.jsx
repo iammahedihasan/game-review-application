@@ -58,7 +58,7 @@ const AddReview = () => {
 
 
 
-        <main>
+        <main className="mt-16">
           <div className="h-[800px] md:h-[600px] flex justify-center items-center">
 
             <div className="card bg-base-100  shrink-0 md:p-10 p-0 rounded-2xl">

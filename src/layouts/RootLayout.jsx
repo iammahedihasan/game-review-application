@@ -3,25 +3,25 @@ import { Outlet } from "react-router-dom";
 import Footer from "../components/Footer";
 import Hero from "../components/Hero";
 import NavBar from "../components/NavBar";
+import News from "../components/News";
 
 
 
 const RootLayout = () => {
   return (
-    <div className=" overflow-x-hidden">
-      <header className="mb-10">
+    <div className="overflow-x-hidden">
+      <header>
+          <NavBar />
+      </header>
+      <main className="mt-16">
         <div>
           <Hero />
-          <div className="absolute top-0 w-full">
-            <NavBar/>
-          </div>
-       </div>
-      </header>
-      <main>
-        <Outlet/>
-     </main>
+        </div>
+        <Outlet />
+        <News/>
+      </main>
       <footer>
-        <Footer/>
+        <Footer />
       </footer>
     </div>
   );

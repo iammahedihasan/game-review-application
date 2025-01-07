@@ -33,9 +33,8 @@ const NavBar = () => {
             <NavLink
               className={({ isActive }) =>
                 isActive
-              ? 'text-[#FFC311]    font-medium'
-              : `${location !== "/" && location!== "/add-reviews" && theme !== "dark" ? " text-black text-sm" : "text-white text-sm"
-          }`
+              ? 'text-[#FFC311]  bg-white py-2 px-8 rounded-full  font-medium'
+              : ''
               }
           
               to="/"
@@ -43,19 +42,7 @@ const NavBar = () => {
               Home
             </NavLink>
           </li>
-          <li className="text-lg">
-            <NavLink
-              className={({ isActive }) =>
-                isActive
-              ? 'text-[#FFC311]     font-medium'
-              : `${location !== "/" && location !== "/add-reviews" && theme !== "dark" ? " text-black text-sm" : "text-white text-sm"
-              }`
-              }
-              to="/all-reviews"
-            >
-          All Reviews
-            </NavLink>
-          </li>
+         
       {
         user && (
           <>
@@ -63,9 +50,21 @@ const NavBar = () => {
               <NavLink
                 className={({ isActive }) =>
                   isActive
-                    ? 'text-[#FFC311]   font-medium'
-                    : `${location !== "/" && location !== "/add-reviews" && theme !== "dark" ?  " text-black text-sm" : "text-white text-sm"
-                    }`
+                    ? 'text-[#FFC311]  bg-white py-2 px-8 rounded-full   font-medium'
+                    : ''
+                }
+                to="/all-reviews"
+              >
+                All Reviews
+              </NavLink>
+            </li>
+            
+            <li className="text-lg">
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? 'text-[#FFC311] bg-white py-2 px-8 rounded-full  font-medium'
+                    : ''
                 }
                 to="/add-reviews"
               >
@@ -78,9 +77,8 @@ const NavBar = () => {
               <NavLink
                 className={({ isActive }) =>
                   isActive
-                    ? 'text-[#FFC311]  rounded-none  font-medium'
-                    : `${location !== "/" && location !== "/add-reviews" && theme !== "dark" ?  " text-black text-sm" : "text-white text-sm"
-                    }`
+                    ? 'text-[#FFC311]  bg-white py-2 px-8 rounded-full  font-medium'
+                    : ''
                 }
                 to="/my-reviews"
               >
@@ -92,9 +90,8 @@ const NavBar = () => {
               <NavLink
                 className={({ isActive }) =>
                   isActive
-                    ? 'text-[#FFC311] rounded-none  font-medium'
-                    : `${location !== "/" && location !== "/add-reviews" && theme !== "dark" ? " text-black text-sm" : "text-white text-sm"
-                    }`
+                    ? 'text-[#FFC311] bg-white py-2 px-8 rounded-full  font-medium'
+                    : ''
                 }
                 to="/my-watchlist"
               >
@@ -103,7 +100,22 @@ const NavBar = () => {
             </li>
           </>
         )
-         }
+      }
+      
+      <li className="text-lg">
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? 'text-[#FFC311] bg-white py-2 px-8 rounded-full  font-medium'
+              : ''
+          }
+          to="/aboutus"
+        >
+          About Us
+        </NavLink>
+      </li>
+
+      
     </>
   );
 
@@ -122,7 +134,7 @@ const NavBar = () => {
     })
   }
   return (
-    <div className="navbar bg-transparent font-kani px-0 md:px-10">
+    <div className="navbar fixed top-0 left-0 w-full z-50 bg-[#FFC311] font-kanit px-0 md:px-28"> 
       <ToastContainer
         position="top-center"
         autoClose={3000}
@@ -158,7 +170,7 @@ const NavBar = () => {
           </ul>
         </div>
         <div>
-          <h2 className={`${location !== "/" && location !== "/add-reviews" ? " text-black font-bold md:text-2xl text-base uppercase font-Game" : "text-white font-Game font-bold md:text-2xl text-base uppercase"}`}>Game<span className='text-[#FFC311]'>Review</span></h2>
+          <h2 className={`${location !== "/" && location !== "/add-reviews" ? " text-black font-bold md:text-2xl text-base uppercase font-Game" : "text-white font-Game font-bold md:text-2xl text-base uppercase"}`}>Game<span className='text-black'>Review</span></h2>
         </div>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -187,6 +199,8 @@ const NavBar = () => {
                 <img className='h-10 rounded-full mr-4' src={user.photoURL} alt="" />
                 <ul tabIndex={0} className="dropdown-content menu rounded-box z-[1] w-32 p-2 shadow">
                   <li className='bg-[#FFC311] text-white '><Link to='/my-profile'>My Profile</Link></li>
+                  <li className='bg-[#FFC311] text-white '><Link to='/contact'>Contact</Link></li>
+                  <li className='bg-[#FFC311] text-white '><Link to='/support'>Support</Link></li>
                 </ul>
               </div>
             </div>

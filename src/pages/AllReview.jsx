@@ -67,7 +67,7 @@ const AllReview = () => {
       <header>
         <NavBar />
       </header>
-      <div className="flex justify-between items-center w-9/12 mx-auto">
+      <div className="flex justify-between items-center mt-20 w-9/12 mx-auto">
         <h2 className="text-[#FFC311] font-bold md:text-3xl text-lg mt-8 mb-8  uppercase"><Typewriter
           words={['All Reviews']}
           loop={true}
@@ -99,7 +99,7 @@ const AllReview = () => {
           </details>
         </div>
       </div>
-      <div className="grid md:grid-cols-3 lg:grid-cols-4 grid-cols-1 place-items-center  gap-10 w-9/12 mx-auto mb-10 ">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid-cols-1 place-items-center  gap-10 w-11/12 xl:w-9/12 mx-auto mb-10 ">
         {
           review.map(r => <ReviewCard key={r._id} r={r}></ReviewCard>)
         }

@@ -26,8 +26,8 @@ const WatchList = () => {
       <header>
         <NavBar />
       </header>
-      <div>
-        <h2 className="text-[#FFC311] font-bold text-2xl mt-8 mb-8 text-center uppercase"><Typewriter
+      <div className="mt-28">
+        <h2 className="text-[#FFC311] font-bold text-3xl mt-8 mb-8 text-center uppercase"><Typewriter
           words={['My WatchLists']}
           loop={true}
           cursor
@@ -37,7 +37,7 @@ const WatchList = () => {
           delaySpeed={2000}
         /></h2>
       </div>
-      <main className=" min-h-[calc(100vh-388px)]">
+      <main className=" min-h-[calc(100vh-388px)] mb-8">
         {
           watchLists.map(w => <WatchListsTable key={w._id} watchLists={watchLists} setWatchLists={setWatchLists} w={w} />)
         }

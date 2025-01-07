@@ -26,7 +26,7 @@ const MyReviews = () => {
         <NavBar />
       </header>
 
-      <div>
+      <div className="mt-28">
         <h2 className="text-[#FFC311] font-bold text-3xl mt-8 mb-10 text-center uppercase"><Typewriter
           words={['My Reviews']}
           loop={true}

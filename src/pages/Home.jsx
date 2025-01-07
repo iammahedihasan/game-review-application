@@ -38,7 +38,7 @@ const Home = () => {
         </div>
         
          <Fade>
-            <main className="grid md:grid-cols-3 lg:grid-cols-4 grid-cols-1 place-items-center gap-8 md:gap-3 ">
+            <main className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid-cols-1 place-items-center gap-8 md:gap-3 ">
               {
                 sort.map(ratings => <SortByRatings key={ratings._id} ratings={ratings}></SortByRatings>)
               }
@@ -51,7 +51,7 @@ const Home = () => {
               <h2 className="text-4xl text-center font-bold uppercase ">Game<span className="text-[#FFC311]">Shop</span></h2>
             </div>
             {/* container */}
-            <div className="grid grid-cols-1 place-items-center md:grid-cols-3 my-10 place-self-center md:gap-5 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 place-items-center  my-10 place-self-center md:gap-5 gap-8">
               <div className="card bg-base-100 w-96 rounded-none">
                 <figure>
                   <img
@@ -102,7 +102,7 @@ const Home = () => {
         <section>
   
           <div className="relative bg-[#D59B16] text-white py-28">
-            <div className="container mx-auto flex flex-col md:flex-row items-center justify-between px-5">
+            <div className="container mx-auto flex flex-col xl:flex-row items-center justify-between px-5">
               {/* Background Image */}
               <div className="absolute inset-0 bg-cover bg-center opacity-20 bg-Gaming"></div>
               {/* Content */}
@@ -116,22 +116,22 @@ const Home = () => {
                   deleteSpeed={50}
                   delaySpeed={2000}
                 /></h2>
-                <form className="flex flex-col md:flex-row w-full md:w-auto gap-4 text-white">
+                <form className="flex flex-col xl:flex-row w-full md:w-auto gap-4 text-white">
                   <input
                     type="email"
                     placeholder="Your email address"
-                    className="w-full md:w-72 px-4 py-2 outline-none  bg-transparent border-white border-2 placeholder-white"
+                    className="w-full xl:w-72 px-4 py-2 outline-none  bg-transparent border-white border-2 placeholder-white"
                     required
                   />
                   <input
                     type="text"
                     placeholder="First Name"
-                    className="w-full md:w-48 px-4 py-2 bg-transparent border-white border-2 outline-none  placeholder-white"
+                    className="w-full xl:w-48 px-4 py-2 bg-transparent border-white border-2 outline-none  placeholder-white"
                   />
                   <input
                     type="text"
                     placeholder="Last Name"
-                    className="w-full md:w-48 px-4 py-2 bg-transparent border-white border-2 outline-none placeholder-white"
+                    className="w-full xl:w-48 px-4 py-2 bg-transparent border-white border-2 outline-none placeholder-white"
                   />
                   <button
                     type="submit"

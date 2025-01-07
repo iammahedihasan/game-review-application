@@ -49,7 +49,7 @@ const MyreviewCard = ({ review, setReview, myReview }) => {
 
           <tr className="flex gap-10 md:gap-44 items-center mb-6">
 
-            <td className="w-56 md:w-[500px] ">
+            <td className="w-56 xl:w-[500px] ">
               <div className="flex items-center  gap-3 justify-start">
                 <div className="avatar">
                   <div className="mask mask-squircle h-12 w-12">
