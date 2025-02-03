@@ -11,7 +11,11 @@ This project is practice or assignment related project. Project name: Game Revie
 - Store Data In DataBase Useing MongoDB
 - Fully Responsive
 
+# Server
+[Game Review Server](https://github.com/iammahedihasan/game-review-server)
 
 ### Live link to the deployed project:
 # https://game-review-app-7d9a0.web.app
+
+
 
