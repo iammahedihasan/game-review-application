@@ -8,6 +8,8 @@
 - Fully Responsive
 
 # dependencies 
+```json
+{
   "firebase": "^11.0.2",
   "react": "^18.3.1",
   "react-awesome-reveal": "^4.2.14",
@@ -20,9 +22,12 @@
   "react-toastify": "^10.0.6",
   "slick-carousel": "^1.8.1",
   "sweetalert2": "^11.14.5"
-
+}
+```
 
 # devDependencies
+```json
+{
   "@eslint/js": "^9.15.0",
   "@types/react": "^18.3.12",
   "@types/react-dom": "^18.3.1",
@@ -37,13 +42,14 @@
   "postcss": "^8.4.49",
   "tailwindcss": "^3.4.15",
   "vite": "^6.0.1"
+  }
+  ```
   
  # Run Your Local Machine 
  - clone this project
  - after clone open terminal
  - run `npm i` command to install dependencies
  - live preview run `npm run dev`
- - Fully Responsive
 
 # Server
 ### [Game Review Server](https://github.com/iammahedihasan/game-review-server)
