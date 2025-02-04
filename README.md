@@ -12,10 +12,10 @@ This project is practice or assignment related project. Project name: Game Revie
 - Fully Responsive
 
 # Server
-[Game Review Server](https://github.com/iammahedihasan/game-review-server)
+### [Game Review Server](https://github.com/iammahedihasan/game-review-server)
 
 ### Live link to the deployed project:
-# https://game-review-app-7d9a0.web.app
+# https://game-review-application-1b3ae.web.app
 
 
 
